@@ -1,0 +1,348 @@
+/* ------------------------------------------------------------------------------------------------
+
+     |  ___|  __ \  |   |  _ \   _ \   
+     | |      |   | |   | |   | |   |  
+ \   | |      |   | |   | __ <  |   |  
+\___/ \____| ____/ \___/ _| \_\\___/   
+                                       
+  ___|  _ \  __ \  ____|    _ )   _ _| __ \  ____|    \     ___|  
+ |     |   | |   | __|     _ \ \   |  |   | __|     _ \  \___ \  
+ |     |   | |   | |      ( `  <   |  |   | |      ___ \       | 
+\____|\___/ ____/ _____| \___/\/ ___|____/ _____|_/    _\_____/  
+
+  https://jcduro.bexartideas.com/index.php | 2025 | JC Duro Code & Ideas
+
+------------------------------------------------------------------------------------------------ */
+  /* Reseteo básico para evitar margenes extra */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 540px; /* Deja espacio al contenido para el header fijo */
+  text-align: center;
+  justify-content: center;
+  background: #000000;
+}
+
+:root{
+  --landing-neon:#04d9ff; /* tu azul principal */
+  --neon-pink:#ff00ff;
+  --neon-purple:#8a2be2;
+  --neon-green:#39ff14;
+  --neon-yellow:#f8ff2f;
+  --bg-dark:#02040a;
+}
+
+.loaders-wrapper{
+  max-width: 980px;
+  margin: 30px auto;
+  padding: 20px;
+  background: radial-gradient(circle at top,#050816 0%,#000 60%,#000 100%);
+  border-radius: 18px;
+  box-shadow:
+    0 0 25px rgba(4,217,255,0.35),
+    0 0 55px rgba(4,217,255,0.25);
+}
+
+.loaders-row{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:24px;
+}
+
+.loaders-row.bottom-row{
+  margin-bottom:0;
+}
+
+.loader-box{
+  flex:1;
+  min-height:90px;
+  border-radius:14px;
+  background:#050816;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+
+/* glow borde */
+.loader-box::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:inherit;
+  background:conic-gradient(
+    from 0deg,
+    var(--landing-neon),
+    var(--neon-pink),
+    var(--neon-purple),
+    var(--neon-green),
+    var(--neon-yellow),
+    var(--landing-neon)
+  );
+  filter:blur(6px);
+  opacity:0.75;
+  z-index:0;
+}
+
+.loader-box::after{
+  content:"";
+  position:absolute;
+  inset:3px;
+  border-radius:inherit;
+  background:rgba(0,0,0,0.92);
+  z-index:1;
+}
+
+.loader-box .loader{
+  position:relative;
+  z-index:2;
+}
+
+/* Responsive simple */
+@media (max-width:900px){
+  .loaders-row{
+    flex-wrap:wrap;
+  }
+  .loader-box{
+    flex:0 0 calc(50% - 10px);
+    margin-bottom:12px;
+  }
+}
+@media (max-width:600px){
+  .loader-box{
+    flex:0 0 100%;
+  }
+}
+
+
+/* 1: anillo girando */
+.loader-1 .loader{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  border:3px solid rgba(4,217,255,0.15);
+  border-top-color:var(--landing-neon);
+  animation:spinLoader 0.8s linear infinite;
+}
+
+/* 2: barras verticales */
+.loader-2 .loader{
+  display:flex;
+  gap:4px;
+}
+.loader-2 .loader::before,
+.loader-2 .loader::after{
+  content:"";
+  width:6px;
+  height:26px;
+  border-radius:4px;
+  background:var(--neon-pink);
+  box-shadow:0 0 12px rgba(255,0,255,0.9);
+  animation:pulseBars 0.9s ease-in-out infinite;
+}
+.loader-2 .loader::after{
+  margin-left:8px;
+  background:var(--landing-neon);
+  box-shadow:0 0 12px rgba(4,217,255,0.9);
+  animation-delay:0.25s;
+}
+
+/* 3: puntos saltando */
+.loader-3 .loader{
+  display:flex;
+  gap:6px;
+}
+.loader-3 .loader::before,
+.loader-3 .loader::after{
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--neon-green);
+  box-shadow:0 0 10px rgba(57,255,20,0.9);
+  animation:bounceDots 0.6s ease-in-out infinite;
+}
+.loader-3 .loader::after{
+  background:var(--neon-yellow);
+  box-shadow:0 0 10px rgba(248,255,47,0.9);
+  animation-delay:0.2s;
+}
+
+/* 4: barra de progreso */
+.loader-4 .loader{
+  width:70%;
+  max-width:180px;
+  height:7px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.07);
+  overflow:hidden;
+  position:relative;
+}
+.loader-4 .loader::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,
+    transparent,
+    var(--landing-neon),
+    var(--neon-pink),
+    transparent
+  );
+  animation:loadBar 1.2s linear infinite;
+}
+
+/* 5: cuadrado girando */
+.loader-5 .loader{
+  width:26px;
+  height:26px;
+  border-radius:6px;
+  border:2px solid var(--neon-purple);
+  box-shadow:0 0 14px rgba(138,43,226,0.9);
+  animation:rotateSquare 0.9s linear infinite;
+}
+
+/* 6: doble anillo */
+.loader-6 .loader{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  border:3px solid transparent;
+  border-top-color:var(--neon-pink);
+  border-bottom-color:var(--landing-neon);
+  animation:spinLoader 0.7s linear infinite;
+}
+
+/* 7: onda pulsante */
+.loader-7 .loader{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  border:2px solid rgba(4,217,255,0.4);
+  position:relative;
+}
+.loader-7 .loader::before{
+  content:"";
+  position:absolute;
+  inset:-4px;
+  border-radius:inherit;
+  border:2px solid var(--neon-green);
+  opacity:0;
+  animation:ripple 1.2s ease-out infinite;
+}
+
+/* 8: cuadritos alternando */
+.loader-8 .loader{
+  display:grid;
+  grid-template-columns:repeat(3,8px);
+  grid-template-rows:repeat(3,8px);
+  gap:4px;
+}
+.loader-8 .loader::before,
+.loader-8 .loader::after{
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:3px;
+  background:var(--neon-yellow);
+  box-shadow:0 0 10px rgba(248,255,47,0.9);
+  animation:blinkSquares 0.8s steps(2,end) infinite;
+}
+.loader-8 .loader::after{
+  background:var(--landing-neon);
+  box-shadow:0 0 10px rgba(4,217,255,0.9);
+  animation-delay:0.4s;
+}
+
+/* 9: texto “LOADING” parpadeo */
+.loader-9 .loader{
+  font-family:system-ui, sans-serif;
+  font-size:0.75rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--landing-neon);
+  text-shadow:
+    0 0 6px rgba(4,217,255,0.9),
+    0 0 14px rgba(4,217,255,0.7);
+  animation:neonBlink 1.4s ease-in-out infinite;
+}
+.loader-9 .loader::before{
+  content:"LOADING";
+}
+
+/* 10: arco que recorre */
+.loader-10 .loader{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 200deg,
+    var(--neon-pink) 230deg,
+    var(--neon-yellow) 270deg,
+    transparent 300deg
+  );
+  mask:radial-gradient(circle at center, transparent 48%, #000 49%);
+  -webkit-mask:radial-gradient(circle at center, transparent 48%, #000 49%);
+  animation:spinLoader 0.9s linear infinite;
+}
+
+@keyframes spinLoader{
+  to{ transform:rotate(360deg); }
+}
+
+@keyframes pulseBars{
+  0%,100%{ transform:scaleY(0.4); opacity:0.4; }
+  50%{ transform:scaleY(1); opacity:1; }
+}
+
+@keyframes bounceDots{
+  0%,100%{ transform:translateY(0); opacity:0.6; }
+  50%{ transform:translateY(-6px); opacity:1; }
+}
+
+@keyframes loadBar{
+  0%{ transform:translateX(-100%); }
+  100%{ transform:translateX(100%); }
+}
+
+@keyframes rotateSquare{
+  0%{ transform:rotate(0deg); }
+  50%{ transform:rotate(180deg) scale(1.1); }
+  100%{ transform:rotate(360deg); }
+}
+
+@keyframes ripple{
+  0%{ transform:scale(0.4); opacity:0.8; }
+  100%{ transform:scale(1.6); opacity:0; }
+}
+
+@keyframes blinkSquares{
+  0%{ opacity:0.2; }
+  50%{ opacity:1; }
+  100%{ opacity:0.2; }
+}
+
+@keyframes neonBlink{
+  0%,100%{
+    opacity:0.6;
+    text-shadow:
+      0 0 4px rgba(4,217,255,0.7),
+      0 0 12px rgba(4,217,255,0.5);
+  }
+  30%,70%{
+    opacity:1;
+    text-shadow:
+      0 0 8px rgba(4,217,255,1),
+      0 0 18px rgba(4,217,255,0.9);
+  }
+  40%{
+    opacity:0.3;
+  }
+}
