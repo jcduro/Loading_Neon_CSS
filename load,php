@@ -1,0 +1,53 @@
+<!--  
+     |  ___|  __ \  |   |  _ \   _ \   
+     | |      |   | |   | |   | |   |  
+ \   | |      |   | |   | __ <  |   |  
+\___/ \____| ____/ \___/ _| \_\\___/   
+                                       
+  ___|  _ \  __ \  ____|    _ )   _ _| __ \  ____|    \     ___|  
+ |     |   | |   | __|     _ \ \   |  |   | __|     _ \  \___ \  
+ |     |   | |   | |      ( `  <   |  |   | |      ___ \       | 
+\____|\___/ ____/ _____| \___/\/ ___|____/ _____|_/    _\_____/  
+
+  https://jcduro.bexartideas.com/index.php | 2025 | JC Duro Code & Ideas
+
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Botones Neón</title>
+     <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+
+
+
+<body>
+
+<div class="loaders-wrapper">
+  <div class="loaders-row top-row">
+    <div class="loader-box loader-1"><div class="loader"></div></div>
+    <div class="loader-box loader-2"><div class="loader"></div></div>
+    <div class="loader-box loader-3"><div class="loader"></div></div>
+    <div class="loader-box loader-4"><div class="loader"></div></div>
+    <div class="loader-box loader-5"><div class="loader"></div></div>
+  </div>
+
+  <div class="loaders-row bottom-row">
+    <div class="loader-box loader-6"><div class="loader"></div></div>
+    <div class="loader-box loader-7"><div class="loader"></div></div>
+    <div class="loader-box loader-8"><div class="loader"></div></div>
+    <div class="loader-box loader-9"><div class="loader"></div></div>
+    <div class="loader-box loader-10"><div class="loader"></div></div>
+  </div>
+</div>
+
+
+
+</body>
+</html>
+
