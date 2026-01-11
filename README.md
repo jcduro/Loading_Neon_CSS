@@ -1,4 +1,4 @@
-## Neon Loaders Panel
+## ⚡ Neon Loaders Panel
 
 Panel de 10 loaders neón, para usar como pantalla de carga dentro de la pagina Web, pensado para mostrar animaciones ligeras mientras se cargan páginas o módulos vía PHP/AJAX. 
 
@@ -24,6 +24,12 @@ Panel de 10 loaders neón, para usar como pantalla de carga dentro de la pagina 
 - Distribución responsiva en dos filas (5 arriba y 5 abajo), adaptable a tablet y móvil.
 - Efectos glow usando `conic-gradient`, sombras y variables CSS de la paleta del dashboard.
 - Implementación 100% HTML + CSS, sin dependencias JS externas para la animación. 
+
+---
+
+## 📊 Lenguajes y Herramientas
+
+[![My Skills](https://skillicons.dev/icons?i=html,css,github,vscode,windows,&theme=light&perline=8)](https://skillicons.dev)
 
 ---
 
