@@ -36,7 +36,7 @@ Panel de 10 loaders neón, para usar como pantalla de carga dentro de la pagina 
 ## 🛠️ Tech Stack
 
 - **Frontend:** HTML5, CSS3 (flexbox, grid, `@keyframes`, `conic-gradient`).
-- **Estilo:** Paleta neón basada en `--landing-neon:#04d9ff;` más variantes rosa, morado, verde y amarillo. [memory:5][memory:6]
+- **Estilo:** Paleta neón basada en `--landing-neon:#04d9ff;` más variantes rosa, morado, verde y amarillo. 
 - **Entorno:** Integrado en `load.php` dentro del dashboard PHP.  
 
 ---
@@ -56,7 +56,7 @@ Panel de 10 loaders neón, para usar como pantalla de carga dentro de la pagina 
 2. Asegurarse de tener definidas las variables CSS de color, especialmente `--landing-neon`, en el CSS global del dashboard.
 3. Mostrar u ocultar el panel de loaders mientras se cargan otras páginas:
    - Mostrar `load.html` antes de lanzar la petición.
-   - Ocultar o reemplazar el panel una vez completada la carga (por ejemplo, al terminar una llamada AJAX o después de incluir otra vista PHP). [web:26][web:29]
+   - Ocultar o reemplazar el panel una vez completada la carga (por ejemplo, al terminar una llamada AJAX o después de incluir otra vista PHP).
 
 ---
 
@@ -64,4 +64,16 @@ Panel de 10 loaders neón, para usar como pantalla de carga dentro de la pagina 
 
 - Cambiar colores neón editando las variables CSS (`--neon-pink`, `--neon-purple`, etc.) para adaptarlos a otros temas del dashboard.
 - Ajustar tamaño de cada loader modificando `width`, `height` y `border-radius` dentro de las reglas `.loader-*`.
-- Reutilizar loaders individuales llamando solo a la caja que se necesite (por ejemplo, incluyendo únicamente `.loader-3` como indicador de carga en un módulo específico). [web:29]
+- Reutilizar loaders individuales llamando solo a la caja que se necesite (por ejemplo, incluyendo únicamente `.loader-3` como indicador de carga en un módulo específico).
+
+--- 
+
+## 📄 Licencia
+Libre, usalo como quieras
+<div align="center">
+  Hecho con 💙 y neones
+</div>
+
+---
+
+## ⭐ Si te gustó este proyecto, no olvides dejar una estrella en GitHub!
